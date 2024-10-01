@@ -1,45 +1,45 @@
 def truth_table(function):
-    print(f"Логическая операция: {function}")
-    print("Таблица истинности:")
+    print(f"Г‹Г®ГЈГЁГ·ГҐГ±ГЄГ Гї Г®ГЇГҐГ°Г Г¶ГЁГї: {function}")
+    print("Г’Г ГЎГ«ГЁГ¶Г  ГЁГ±ГІГЁГ­Г­Г®Г±ГІГЁ:")
     print("+---+---+---------+")
     print("| A | B | F(A, B) |")
     print("+---+---+---------+")
-    if function == "И":
+    if function == "Г€":
         for a in 0,1:
             for b in 0,1:
                 print(f"| {a} | {b} |    {a and b}    |")
-    elif function == "ИЛИ":
+    elif function == "Г€Г‹Г€":
         for a in 0,1:
             for b in 0,1:
                 print(f"| {a} | {b} |    {a or b}    |")
-    elif function == "СЛЕДОВАНИЕ":
+    elif function == "Г‘Г‹Г…Г„ГЋГ‚ГЂГЌГ€Г…":
         for a in 0,1:
             for b in 0,1:
                 print(f"| {a} | {b} |    {int(a<=b)}    |")
-    elif function == "ЭКВИВАЛЕНТНОСТЬ":
+    elif function == "ГќГЉГ‚Г€Г‚ГЂГ‹Г…ГЌГ’ГЌГЋГ‘Г’Гњ":
         for a in 0,1:
             for b in 0,1:
                 print(f"| {a} | {b} |    {int(a==b)}    |")
-    elif function == "ЛИБО":
+    elif function == "Г‹Г€ГЃГЋ":
         for a in 0,1:
             for b in 0,1:
                 print(f"| {a} | {b} |    {int(a!=b)}    |")
-    elif function == "ШТРИХ ШЕФФЕРА":
+    elif function == "ГГ’ГђГ€Г• ГГ…Г”Г”Г…ГђГЂ":
         for a in 0,1:
             for b in 0,1:
                 print(f"| {a} | {b} |    {int(not(a and b))}    |")
     print("+---+---+---------+")
 def equivalence_truth_table(function_name=""):
-    print(f"Равносильность: {function_name}")
-    print("Таблица истинности:")
-    if function_name == "Закон идентичности":
+    print(f"ГђГ ГўГ­Г®Г±ГЁГ«ГјГ­Г®Г±ГІГј: {function_name}")
+    print("Г’Г ГЎГ«ГЁГ¶Г  ГЁГ±ГІГЁГ­Г­Г®Г±ГІГЁ:")
+    if function_name == "Г‡Г ГЄГ®Г­ ГЁГ¤ГҐГ­ГІГЁГ·Г­Г®Г±ГІГЁ":
         print("+---+---------+")
         print("| A | F(A, B) |")
         print("+---+---------+")
         for a in 0,1:
             print(f"| {a} |    {a and a}    |")
         print("+---+---------+")
-    elif function_name == "Закон де Моргана":
+    elif function_name == "Г‡Г ГЄГ®Г­ Г¤ГҐ ГЊГ®Г°ГЈГ Г­Г ":
         print("+---+---+---------+---------+")
         print("| A | B | F(A, B) | G(A, B) |")
         print("+---+---+---------+---------+")
@@ -47,12 +47,13 @@ def equivalence_truth_table(function_name=""):
             for b in 0,1:
                 print(f"| {a} | {b} |    {int(not(a and b))}    |    {int(not a or not b)}    |")
         print("+---+---+---------+---------+")
-truth_table("И")
-truth_table("ИЛИ")
-truth_table("ЛИБО")
-truth_table("СЛЕДОВАНИЕ")
-truth_table("ЭКВИВАЛЕНТНОСТЬ")
-truth_table("ШТРИХ ШЕФФЕРА")
-print("Законы равносильности")
-equivalence_truth_table("Закон идентичности")
-equivalence_truth_table("Закон де Моргана")
+truth_table("Г€")
+truth_table("Г€Г‹Г€")
+truth_table("ASD")
+truth_table("Г‹Г€ГЃГЋ")
+truth_table("Г‘Г‹Г…Г„ГЋГ‚ГЂГЌГ€Г…")
+truth_table("ГќГЉГ‚Г€Г‚ГЂГ‹Г…ГЌГ’ГЌГЋГ‘Г’Гњ")
+truth_table("ГГ’ГђГ€Г• ГГ…Г”Г”Г…ГђГЂ")
+print("Г‡Г ГЄГ®Г­Г» Г°Г ГўГ­Г®Г±ГЁГ«ГјГ­Г®Г±ГІГЁ")
+equivalence_truth_table("Г‡Г ГЄГ®Г­ ГЁГ¤ГҐГ­ГІГЁГ·Г­Г®Г±ГІГЁ")
+equivalence_truth_table("Г‡Г ГЄГ®Г­ Г¤ГҐ ГЊГ®Г°ГЈГ Г­Г ")
