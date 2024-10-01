@@ -1,0 +1,58 @@
+def truth_table(function):
+    print(f"Логическая операция: {function}")
+    print("Таблица истинности:")
+    print("+---+---+---------+")
+    print("| A | B | F(A, B) |")
+    print("+---+---+---------+")
+    if function == "И":
+        for a in 0,1:
+            for b in 0,1:
+                print(f"| {a} | {b} |    {a and b}    |")
+    elif function == "ИЛИ":
+        for a in 0,1:
+            for b in 0,1:
+                print(f"| {a} | {b} |    {a or b}    |")
+    elif function == "СЛЕДОВАНИЕ":
+        for a in 0,1:
+            for b in 0,1:
+                print(f"| {a} | {b} |    {int(a<=b)}    |")
+    elif function == "ЭКВИВАЛЕНТНОСТЬ":
+        for a in 0,1:
+            for b in 0,1:
+                print(f"| {a} | {b} |    {int(a==b)}    |")
+    elif function == "ЛИБО":
+        for a in 0,1:
+            for b in 0,1:
+                print(f"| {a} | {b} |    {int(a!=b)}    |")
+    elif function == "ШТРИХ ШЕФФЕРА":
+        for a in 0,1:
+            for b in 0,1:
+                print(f"| {a} | {b} |    {int(not(a and b))}    |")
+    print("+---+---+---------+")
+def equivalence_truth_table(function_name=""):
+    print(f"Равносильность: {function_name}")
+    print("Таблица истинности:")
+    if function_name == "Закон идентичности":
+        print("+---+---------+")
+        print("| A | F(A, B) |")
+        print("+---+---------+")
+        for a in 0,1:
+            print(f"| {a} |    {a and a}    |")
+        print("+---+---------+")
+    elif function_name == "Закон де Моргана":
+        print("+---+---+---------+---------+")
+        print("| A | B | F(A, B) | G(A, B) |")
+        print("+---+---+---------+---------+")
+        for a in 0,1:
+            for b in 0,1:
+                print(f"| {a} | {b} |    {int(not(a and b))}    |    {int(not a or not b)}    |")
+        print("+---+---+---------+---------+")
+truth_table("И")
+truth_table("ИЛИ")
+truth_table("ЛИБО")
+truth_table("СЛЕДОВАНИЕ")
+truth_table("ЭКВИВАЛЕНТНОСТЬ")
+truth_table("ШТРИХ ШЕФФЕРА")
+print("Законы равносильности")
+equivalence_truth_table("Закон идентичности")
+equivalence_truth_table("Закон де Моргана")
